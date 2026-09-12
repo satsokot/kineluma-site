@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Environment, Float } from "@react-three/drei";
+import { Float } from "@react-three/drei";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -52,6 +52,7 @@ function Scene({ progress }: { progress: React.MutableRefObject<number> }) {
           <meshPhysicalMaterial color="#8b7cff" emissive="#241d60" emissiveIntensity={1.2} metalness={0.55} roughness={0.12} transmission={0.08} />
         </mesh>
       </Float>
+      <directionalLight position={[3, 5, 4]} intensity={4.4} color="#ffffff" />
       <pointLight position={[4, 2, 4]} intensity={34} color="#ffffff" />
       <pointLight position={[-4, -1, 2]} intensity={18} color="#7666ff" />
     </group>
@@ -95,7 +96,6 @@ export default function KineLumaExperience() {
           <color attach="background" args={["#050505"]} />
           <ambientLight intensity={0.3} />
           <Scene progress={progress} />
-          <Environment preset="city" />
         </Canvas>
       </div>
       <div className="veil" />
