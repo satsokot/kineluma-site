@@ -1,5 +1,5 @@
-import KineLumaExperience from "../components/KineLumaExperience";
+import KineLumaLanding from "../components/KineLumaLanding";
 
 export default function Home() {
-  return <KineLumaExperience />;
+  return <KineLumaLanding />;
 }
