@@ -1,0 +1,14 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/kinecccp/kineluma-app/
+    - /bin/rm -rf $DEPLOYPATH/app $DEPLOYPATH/components
+    - /bin/cp -R app $DEPLOYPATH
+    - /bin/cp -R components $DEPLOYPATH
+    - /bin/cp package.json $DEPLOYPATH
+    - /bin/cp tsconfig.json $DEPLOYPATH
+    - /bin/cp next-env.d.ts $DEPLOYPATH
+    - /bin/cp server.js $DEPLOYPATH
+    - /bin/mkdir -p $DEPLOYPATH/tmp
+    - /bin/bash -lc 'source /home/kinecccp/nodevenv/kineluma-app/22/bin/activate && cd /home/kinecccp/kineluma-app && npm install --include=prod && npm run build'
+    - /usr/bin/touch $DEPLOYPATH/tmp/restart.txt
